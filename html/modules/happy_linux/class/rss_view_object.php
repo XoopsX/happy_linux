@@ -1,5 +1,8 @@
 <?php
-// $Id: rss_view_object.php,v 1.1 2010/11/07 14:59:23 ohwada Exp $
+// $Id: rss_view_object.php,v 1.2 2010/11/07 19:26:32 ohwada Exp $
+
+// 2010-11-07 K.OHWADA
+// _substitute_link()
 
 // 2008-01-20 K.OHWADA
 // divid to rss_view_object.php
@@ -351,6 +354,30 @@ function _substitute_title($key)
 	}
 
 	return $this->_TITLE_SUBSTITUTE;
+}
+
+//---------------------------------------------------------
+// substitute_link
+// some feed have no link
+// subsutute by null
+//---------------------------------------------------------
+function _substitute_link($key)
+{
+	if ( $this->is_set($key) ) {
+		$val = $this->get_rss_var($key);
+		if ( $this->_check_http_start($val) ) {
+			return $val;
+		}
+	}
+ 	return null;
+}
+
+function _check_http_start( $str )
+{
+	if ( preg_match("|^https?://|", $str) ) {
+		return true;	// include HTTP
+	}
+	return false;
 }
 
 //---------------------------------------------------------
@@ -964,6 +991,8 @@ function format_from_db()
 {
 	$this->set('site_title', $this->_substitute_title('site_title') );
 	$this->set('title'     , $this->_substitute_title('title') );
+	$this->set('site_link' , $this->_substitute_link('site_link') );
+	$this->set('link'      , $this->_substitute_link('link') );
 	$this->set('content',    $this->_build_content_for_format() );
 	$this->set('summary',    $this->_build_summary_for_format() );
 	$this->_format_guid_url();

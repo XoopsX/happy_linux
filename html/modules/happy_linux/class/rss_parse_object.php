@@ -1,5 +1,8 @@
 <?php
-// $Id: rss_parse_object.php,v 1.1 2010/11/07 14:59:19 ohwada Exp $
+// $Id: rss_parse_object.php,v 1.2 2010/11/07 19:26:32 ohwada Exp $
+
+// 2010-11-07 K.OHWADA
+// BUG: NOT parse http://maps.google.co.jp/maps/
 
 // 2009-02-20 K.OHWADA
 // _build_geo() _build_media_content()
@@ -802,7 +805,13 @@ function _build_geo()
 
 	} elseif ( $this->is_set('georss','point') ) {
 		$lat_long = $this->get_rss_var('georss','point');
-		list($lat, $long) = preg_split( "/[\s]+/", $lat_long );
+
+// BUG: NOT parse http://maps.google.co.jp/maps/
+		$arr = $this->_str_to_array( $lat_long, ' ' );
+		if ( isset($arr[0]) && isset($arr[1]) ) {
+			$lat   = $arr[0];
+			$long  = $arr[1];
+		}
 	}
 
 	return array($lat, $long);
@@ -860,6 +869,21 @@ function _build_media_thumbnail()
 	return array( $url, $width, $height );
 }
 
+//-------------------------------------------------
+// utility
+//-------------------------------------------------
+function _str_to_array( $str, $pattern )
+{
+	$arr1 = explode( $pattern, $str );
+	$arr2 = array();
+	foreach ( $arr1 as $v )
+	{
+		$v = trim($v);
+		if ($v == '') { continue; }
+		$arr2[] = $v;
+	}
+	return $arr2;
+}
 
 // --- class end ---
 }
