@@ -1,11 +1,29 @@
-$Id: readme.txt,v 1.1 2010/11/07 14:59:12 ohwada Exp $
+$Id: readme.txt,v 1.2 2011/12/29 18:04:19 ohwada Exp $
+
+=================================================
+Version: 1.60
+Date:   2011-12-29
+Author: Kenichi OHWADA
+URL:    http://linux2.ohwada.net/
+Email:  webmaster@ohwada.net
+=================================================
+
+This module is the library collection for modules distributing in Happy Linux
+
+* Changes *
+1. Migrating to PHP 5.3
+Deprecated features in PHP 5.3.x
+http://www.php.net/manual/en/migration53.deprecated.php
+(1) ereg
+
+2. bugfix
+(1) can not get georss from Google map
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=1142&forum=9
+
 
 =================================================
 Version: 1.50
 Date:   2009-02-25
-Author: Kenichi OHWADA
-URL:    http://linux2.ohwada.net/
-Email:  webmaster@ohwada.net
 =================================================
 
 This module is the library collection for modules distributing in Happy Linux

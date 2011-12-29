@@ -1,11 +1,29 @@
-$Id: readme_ja.txt,v 1.1 2010/11/07 14:59:12 ohwada Exp $
+$Id: readme_ja.txt,v 1.2 2011/12/29 18:04:19 ohwada Exp $
+
+=================================================
+Version: 1.60
+Date:   2011-12-29
+Author: Kenichi OHWADA
+URL:    http://linux.ohwada.jp/
+Email:  webmaster@ohwada.jp
+=================================================
+
+このモジュールは、Happy Linux で配布しているモジュール用のライブラリ集です
+
+● 変更内容
+1. PHP 5.3 対応
+PHP 5.3.x で推奨されない機能 を修正した
+http://www.php.net/manual/ja/migration53.deprecated.php
+(1) ereg
+
+2. バグ修正
+(1) Google mapからgeorssの取得ができない
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=1142&forum=9
+
 
 =================================================
 Version: 1.50
 Date:   2009-02-25
-Author: Kenichi OHWADA
-URL:    http://linux.ohwada.jp/
-Email:  webmaster@ohwada.jp
 =================================================
 
 このモジュールは、Happy Linux で配布しているモジュール用のライブラリ集です

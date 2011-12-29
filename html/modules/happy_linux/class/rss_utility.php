@@ -1,5 +1,8 @@
 <?php
-// $Id: rss_utility.php,v 1.1 2010/11/07 14:59:22 ohwada Exp $
+// $Id: rss_utility.php,v 1.2 2011/12/29 18:04:19 ohwada Exp $
+
+// 2011-12-29 K.OHWADA
+// PHP 5.3 : ereg
 
 // 2007-10-10 K.OHWADA
 // 2007-09-20 K.OHWADA
@@ -522,7 +525,7 @@ function _relative_to_full_url($url, $url_html)
 	if ( empty($url) )  return '';
 
 // start from "/"
-	if ( ereg("^\/", $url) ) 
+	if ( preg_match("/^\//", $url) ) 
 	{
 		$domain = '';
 
@@ -535,7 +538,7 @@ function _relative_to_full_url($url, $url_html)
 		$url_full = "http://".$domain.$url;
 	}
 // not start from "http"
-	elseif ( !ereg("^http", $url) ) 
+	elseif ( !preg_match("/^http/", $url) ) 
 	{
 		$dir = $url_html;
 
