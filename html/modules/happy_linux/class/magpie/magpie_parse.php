@@ -1,5 +1,8 @@
 <?php
-// $Id: magpie_parse.php,v 1.1 2010/11/07 14:59:24 ohwada Exp $
+// $Id: magpie_parse.php,v 1.2 2011/12/29 18:13:10 ohwada Exp $
+
+// 2011-12-29 K.OHWADA
+// Notice [PHP]: Undefined index: rel
 
 // 2009-02-20 K.OHWADA
 // media_rss
@@ -286,15 +289,17 @@ class happy_linux_magpie_parse
         //
         elseif ($this->feed_type == HAPPY_LINUX_MAGPIE_ATOM and $el == 'link' ) 
         {
-            if ( isset($attrs['rel']) and $attrs['rel'] == 'alternate' ) 
-            {
-                $link_el = 'link';
+// Undefined index: rel
+            if ( isset($attrs['rel']) ) {
+				if ( $attrs['rel'] == 'alternate' ) {
+	                $link_el = 'link';
+            	} else {
+                	$link_el = 'link_' . $attrs['rel'];
+				}
+            	if ( isset($attrs['href']) ) {
+            		$this->append($link_el, $attrs['href']);
+				}
             }
-            else {
-                $link_el = 'link_' . $attrs['rel'];
-            }
-            
-            $this->append($link_el, $attrs['href']);
         }
 
 // RSS enclosure
