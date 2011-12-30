@@ -1,5 +1,8 @@
 <?php
-// $Id: bin_base.php,v 1.1 2010/11/07 14:59:23 ohwada Exp $
+// $Id: bin_base.php,v 1.2 2011/12/30 00:50:30 ohwada Exp $
+
+// 2011-12-29 K.OHWADA
+// $this->_offset in _set_env_param_web()
 
 // 2007-10-10 K.OHWADA
 // _set_system_param()
@@ -230,6 +233,11 @@ function _set_env_param_web()
 	if ( $this->isset_opt('limit') )
 	{
 		$this->_limit = $this->get_opt('limit');
+	}
+
+	if ( $this->isset_opt('offset') )
+	{
+		$this->_offset = $this->get_opt('offset');
 	}
 }
 

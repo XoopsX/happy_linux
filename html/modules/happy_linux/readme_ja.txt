@@ -1,4 +1,4 @@
-$Id: readme_ja.txt,v 1.2 2011/12/29 18:04:19 ohwada Exp $
+$Id: readme_ja.txt,v 1.3 2011/12/30 00:50:30 ohwada Exp $
 
 =================================================
 Version: 1.60
@@ -20,6 +20,8 @@ http://www.php.net/manual/ja/migration53.deprecated.php
 (1) Google mapからgeorssの取得ができない
 http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=1142&forum=9
 
+(2) コマンドの offset が指定できない
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=1210&forum=9
 
 =================================================
 Version: 1.50

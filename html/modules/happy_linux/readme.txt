@@ -1,4 +1,4 @@
-$Id: readme.txt,v 1.2 2011/12/29 18:04:19 ohwada Exp $
+$Id: readme.txt,v 1.3 2011/12/30 00:50:30 ohwada Exp $
 
 =================================================
 Version: 1.60
@@ -19,6 +19,9 @@ http://www.php.net/manual/en/migration53.deprecated.php
 2. bugfix
 (1) can not get georss from Google map
 http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=1142&forum=9
+
+(2) NOT set offset in command
+http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=1210&forum=9
 
 
 =================================================
