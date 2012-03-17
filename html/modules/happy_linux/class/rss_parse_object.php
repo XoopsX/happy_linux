@@ -1,5 +1,8 @@
 <?php
-// $Id: rss_parse_object.php,v 1.2 2010/11/07 19:26:32 ohwada Exp $
+// $Id: rss_parse_object.php,v 1.3 2012/03/17 16:08:32 ohwada Exp $
+
+// 2012-03-01 K.OHWADA
+// <geo:lat>lat</geo:lat>
 
 // 2010-11-07 K.OHWADA
 // BUG: NOT parse http://maps.google.co.jp/maps/
@@ -791,6 +794,10 @@ function _build_enclosure()
 //    <geo:lat>lat</geo:lat>
 //    <geo:long>long</geo:long>
 //  </geo:point>
+//
+//  <geo:lat>lat</geo:lat>
+//  <geo:long>long</geo:long>
+//
 //  <georss:point>lat long</georss:point>
 //-------------------------------------------------
 function _build_geo()
@@ -798,11 +805,19 @@ function _build_geo()
 	$lat   = null;
 	$long  = null;
 
+// <geo:point>
 	if ( $this->is_set('geo','point_lat') ||
 		 $this->is_set('geo','point_long') )  {
 		$lat  = $this->get_rss_var('geo','point_lat');
 		$long = $this->get_rss_var('geo','point_long');
 
+// <geo:lat>lat</geo:lat>
+	} elseif ( $this->is_set('geo','lat') ||
+		 $this->is_set('geo','long') )  {
+		$lat  = $this->get_rss_var('geo','lat');
+		$long = $this->get_rss_var('geo','long');
+
+// <georss:point>lat long</georss:point>
 	} elseif ( $this->is_set('georss','point') ) {
 		$lat_long = $this->get_rss_var('georss','point');
 

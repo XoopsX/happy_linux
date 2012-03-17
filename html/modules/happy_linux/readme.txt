@@ -1,4 +1,4 @@
-$Id: readme.txt,v 1.4 2012/03/17 13:09:22 ohwada Exp $
+$Id: readme.txt,v 1.5 2012/03/17 16:08:32 ohwada Exp $
 
 =================================================
 Version: 1.61
@@ -11,7 +11,10 @@ Email:  webmaster@ohwada.net
 This module is the library collection for modules distributing in Happy Linux
 
 * Changes *
-1. bugfix
+1. RSS Parser
+(1) suport georss without <geo:point>
+
+2. bugfix
 (1) NOT identify XOOPS Cube 2.2 in link to module management
 (2) an error in constructor of happy_linux_config_form
 

@@ -1,4 +1,4 @@
-$Id: readme_ja.txt,v 1.4 2012/03/17 13:09:23 ohwada Exp $
+$Id: readme_ja.txt,v 1.5 2012/03/17 16:10:46 ohwada Exp $
 
 =================================================
 Version: 1.61
@@ -11,7 +11,10 @@ Email:  webmaster@ohwada.jp
 このモジュールは、Happy Linux で配布しているモジュール用のライブラリ集です
 
 ● 変更内容
-1. バグ修正
+1. RSS Parser
+(1) <geo:point> のない georss に対応した
+
+2. バグ修正
 (1) モジュール管理へのリンクで XOOPS Cube 2.2 と識別できかった
 (2) happy_linux_config_form のコンストラクタに誤りがあった
 
