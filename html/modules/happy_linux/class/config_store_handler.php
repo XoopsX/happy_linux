@@ -1,5 +1,8 @@
 <?php
-// $Id: config_store_handler.php,v 1.1 2010/11/07 14:59:20 ohwada Exp $
+// $Id: config_store_handler.php,v 1.2 2012/03/17 13:09:23 ohwada Exp $
+
+// 2012-03-01 K.OHWADA
+// BUG: happy_linux_form_lib -> happy_linux_form_lib
 
 // 2007-11-24 K.OHWADA
 // compare_to_define()
@@ -75,7 +78,10 @@ class happy_linux_config_form extends happy_linux_form_lib
 //---------------------------------------------------------
 function happy_linux_config_form()
 {
-	$this->happy_linux_form();
+
+// BUG: happy_linux_form_lib -> happy_linux_form_lib
+	$this->happy_linux_form_lib();
+
 	$this->set_form_name( $this->_FORM_NAME_CONFIG );
 
 	$this->_config_define_handler =& happy_linux_config_define_handler::getInstance();

@@ -1,12 +1,25 @@
-$Id: readme.txt,v 1.3 2011/12/30 00:50:30 ohwada Exp $
+$Id: readme.txt,v 1.4 2012/03/17 13:09:22 ohwada Exp $
 
 =================================================
-Version: 1.60
-Date:   2011-12-29
+Version: 1.61
+Date:   2012-03-01
 Author: Kenichi OHWADA
 URL:    http://linux2.ohwada.net/
 Email:  webmaster@ohwada.net
 =================================================
+
+This module is the library collection for modules distributing in Happy Linux
+
+* Changes *
+1. bugfix
+(1) NOT identify XOOPS Cube 2.2 in link to module management
+(2) an error in constructor of happy_linux_config_form
+
+
+=================================================
+Version: 1.60
+Date:   2011-12-29
+================
 
 This module is the library collection for modules distributing in Happy Linux
 

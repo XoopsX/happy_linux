@@ -1,5 +1,8 @@
 <?php
-// $Id: admin.php,v 1.1 2010/11/07 14:59:21 ohwada Exp $
+// $Id: admin.php,v 1.2 2012/03/17 13:09:23 ohwada Exp $
+
+// 2012-03-01 K.OHWADA
+// XOOPS_CUBE_LEGACY
 
 // 2008-01-30 K.OHWADA
 // Assigning the return value of new by reference is deprecated
@@ -323,6 +326,10 @@ function _judge_version()
 function _is_version_xc_21()
 {
 // XOOPS Cube Legacy 2.1
+	if ( defined( 'XOOPS_CUBE_LEGACY' ) ) {
+		$this->_TIME = 1;	// 1 sec
+		return true;
+	}
 	if ( preg_match("/XOOPS[\s+]Cube.*[\s+]2\.1/i", XOOPS_VERSION) )
 	{
 		return true;

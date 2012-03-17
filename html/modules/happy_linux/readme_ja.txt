@@ -1,11 +1,24 @@
-$Id: readme_ja.txt,v 1.3 2011/12/30 00:50:30 ohwada Exp $
+$Id: readme_ja.txt,v 1.4 2012/03/17 13:09:23 ohwada Exp $
+
+=================================================
+Version: 1.61
+Date:   2012-03-01
+Author: Kenichi OHWADA
+URL:    http://linux.ohwada.jp/
+Email:  webmaster@ohwada.jp
+=================================================
+
+このモジュールは、Happy Linux で配布しているモジュール用のライブラリ集です
+
+● 変更内容
+1. バグ修正
+(1) モジュール管理へのリンクで XOOPS Cube 2.2 と識別できかった
+(2) happy_linux_config_form のコンストラクタに誤りがあった
+
 
 =================================================
 Version: 1.60
 Date:   2011-12-29
-Author: Kenichi OHWADA
-URL:    http://linux.ohwada.jp/
-Email:  webmaster@ohwada.jp
 =================================================
 
 このモジュールは、Happy Linux で配布しているモジュール用のライブラリ集です
