@@ -1,5 +1,8 @@
 <?php
-// $Id: rss_utility.php,v 1.2 2011/12/29 18:04:19 ohwada Exp $
+// $Id: rss_utility.php,v 1.3 2012/03/18 08:18:30 ohwada Exp $
+
+// 2012-03-01 K.OHWADA
+// join_xml_url()
 
 // 2011-12-29 K.OHWADA
 // PHP 5.3 : ereg
@@ -234,6 +237,9 @@ function read_html($url)
 
 //---------------------------------------------------------
 // read remote XML
+//
+// head spaces
+// http://www.iwate-svc.jp/feed
 //---------------------------------------------------------
 function read_xml($url)
 {
@@ -248,6 +254,9 @@ function read_xml($url)
 		$this->_set_errors(     $this->_remote_file->getErrors() );
 		return false;
 	}
+
+// remove head spaces
+	$data = preg_replace( '/^\s+<\?xml/', '<?xml', $data );
 
 	$this->_xml_data = $data;
 	return $data;
@@ -519,44 +528,64 @@ function _find_xml_link($html, $url='')
 
 //---------------------------------------------------------
 // relative_to_full_url
+// http://www.univcoop.or.jp/ atom.xml
 //---------------------------------------------------------
-function _relative_to_full_url($url, $url_html)
+function _relative_to_full_url($url_xml, $url_html)
 {
-	if ( empty($url) )  return '';
+	if ( empty($url_xml) )  return '';
 
 // start from "/"
-	if ( preg_match("/^\//", $url) ) 
-	{
-		$domain = '';
+	if ( preg_match("/^\//", $url_xml) ) {
+
+	// "http://xxx/***/"
+		if ( preg_match("/(https?:\/\/.*)\/.*/", $url_html, $match) ) {
+			$url_full = $this->join_xml_url( $match[1], $url_xml );
+			return $url_full;
+		}
+	}
+
+// not start from "http"
+	if ( !preg_match("/^http/", $url_xml) ) {
+		$domain = $url_html;
 
 	// "http://domain/***/"
-		if ( preg_match("/http:\/\/(.*?)\/.*/", $url_html, $match) ) 
-		{
-			$domain   = $match[1];
+		if ( preg_match("/^(https?:\/\/.*)\/(.*\..*)$/", $url_html, $match) ) {
+			$domain = $match[1];
 		}
 
-		$url_full = "http://".$domain.$url;
+		$url_full = $this->join_xml_url( $domain, $url_xml );
+		return $url_full;
 	}
-// not start from "http"
-	elseif ( !preg_match("/^http/", $url) ) 
-	{
-		$dir = $url_html;
 
-	// "dir/***/"
-		if ( preg_match("/^(.*)\/(.*\..*)$/", $dir, $match) )
-		{
-			$dir = $match[1];
-		}
-
-		$url_full = $dir."/".$url;
-	}
 // maybe full url
-	else
-	{
-		$url_full = $url;
-	}
+	return $url_xml;
+}
 
-	return $url_full;
+function join_xml_url( $url_html, $url_xml )
+{
+	$html = $this->strip_slash_from_tail( $url_html );
+	$xml  = $this->strip_slash_from_head( $url_xml );
+	$full = $html.'/'.$xml;
+	return $full;
+}
+
+function strip_slash_from_head( $str )
+{
+// ord : the ASCII value of the first character of string
+// 0x2f slash
+
+	if( ord( $str ) == 0x2f ) {
+		$str = substr($str, 1);
+	}
+	return $str;
+}
+
+function strip_slash_from_tail( $str )
+{
+	if ( substr($str, -1, 1) == '/' ) {
+		$str = substr($str, 0, -1);
+	}
+	return $str;
 }
 
 //---------------------------------------------------------

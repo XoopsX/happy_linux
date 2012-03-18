@@ -1,7 +1,7 @@
-$Id: readme_ja.txt,v 1.5 2012/03/17 16:10:46 ohwada Exp $
+$Id: readme_ja.txt,v 1.6 2012/03/18 08:18:30 ohwada Exp $
 
 =================================================
-Version: 1.61
+Version: 1.70
 Date:   2012-03-01
 Author: Kenichi OHWADA
 URL:    http://linux.ohwada.jp/
@@ -12,9 +12,14 @@ Email:  webmaster@ohwada.jp
 
 ● 変更内容
 1. RSS Parser
-(1) <geo:point> のない georss に対応した
+(1) RSS Auto Discovery にて相対URLから絶対URLへの変換を修正した
+(2) 頭に空白がある xml は空白を削除した
+(3) <geo:point> のない georss に対応した
 
-2. バグ修正
+2. DB ハンドラー
+(1) SHOW COLUMNS を追加した
+
+3. バグ修正
 (1) モジュール管理へのリンクで XOOPS Cube 2.2 と識別できかった
 (2) happy_linux_config_form のコンストラクタに誤りがあった
 

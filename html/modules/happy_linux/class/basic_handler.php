@@ -1,5 +1,8 @@
 <?php
-// $Id: basic_handler.php,v 1.1 2010/11/07 14:59:20 ohwada Exp $
+// $Id: basic_handler.php,v 1.2 2012/03/18 08:18:30 ohwada Exp $
+
+// 2012-03-01 K.OHWADA
+// get_columns()
 
 // 2008-01-30 K.OHWADA
 // change get_object_by_id()
@@ -585,6 +588,32 @@ function _has_conf_cached()
 		return true;
 	}
 	return false;
+}
+
+//---------------------------------------------------------
+// column
+//---------------------------------------------------------
+function get_columns()
+{
+	$sql = "SHOW COLUMNS FROM ". $this->_table ;
+	$rows = $this->get_rows_by_sql( $sql );
+	if ( !is_array($rows) ) { 
+		return false; 
+	}
+	return $rows;
+}
+
+function update_column_type( $fields )
+{
+	$arr = array();
+	foreach ( $fields as $field ) {
+		$arr[] = " MODIFY `". $field['field'] ."`  ". $field['type'] ." ";
+	}
+
+	$sql  = "ALTER TABLE ". $this->_table;
+	$sql .= implode( ', ', $arr );
+
+	return $this->query( $sql );
 }
 
 //---------------------------------------------------------

@@ -1,7 +1,7 @@
-$Id: readme.txt,v 1.5 2012/03/17 16:08:32 ohwada Exp $
+$Id: readme.txt,v 1.6 2012/03/18 08:18:30 ohwada Exp $
 
 =================================================
-Version: 1.61
+Version: 1.70
 Date:   2012-03-01
 Author: Kenichi OHWADA
 URL:    http://linux2.ohwada.net/
@@ -11,6 +11,14 @@ Email:  webmaster@ohwada.net
 This module is the library collection for modules distributing in Happy Linux
 
 * Changes *
+1. RSS Parser
+(1) change conversion to absolute URL from relative URL. 
+(2) remove spaces in the head of xml
+(3) suport georss without <geo:point>
+
+2. DB hanlder
+(1) add SHOW COLUMNS
+
 1. RSS Parser
 (1) suport georss without <geo:point>
 

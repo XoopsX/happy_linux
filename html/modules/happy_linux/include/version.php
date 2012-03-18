@@ -1,11 +1,11 @@
 <?php
-// $Id: version.php,v 1.3 2012/03/17 13:09:23 ohwada Exp $
+// $Id: version.php,v 1.4 2012/03/18 08:18:30 ohwada Exp $
 
 //=========================================================
 // Happy Linux Framework Module
 // 2006-07-10 K.OHWADA
 //=========================================================
 
-define('HAPPY_LINUX_VERSION', '1.61');
+define('HAPPY_LINUX_VERSION', '1.70');
 
 ?>
