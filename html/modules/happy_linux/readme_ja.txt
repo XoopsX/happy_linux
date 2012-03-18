@@ -1,4 +1,4 @@
-$Id: readme_ja.txt,v 1.6 2012/03/18 08:18:30 ohwada Exp $
+$Id: readme_ja.txt,v 1.7 2012/03/18 14:25:04 ohwada Exp $
 
 =================================================
 Version: 1.70
@@ -12,7 +12,7 @@ Email:  webmaster@ohwada.jp
 
 ● 変更内容
 1. RSS Parser
-(1) RSS Auto Discovery にて相対URLから絶対URLへの変換を修正した
+(1) RSS Auto Discovery にて base タグに対応した
 (2) 頭に空白がある xml は空白を削除した
 (3) <geo:point> のない georss に対応した
 

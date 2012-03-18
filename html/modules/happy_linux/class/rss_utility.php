@@ -1,5 +1,5 @@
 <?php
-// $Id: rss_utility.php,v 1.3 2012/03/18 08:18:30 ohwada Exp $
+// $Id: rss_utility.php,v 1.4 2012/03/18 14:25:04 ohwada Exp $
 
 // 2012-03-01 K.OHWADA
 // join_xml_url()
@@ -448,15 +448,24 @@ function get_result_code()
 //---------------------------------------------------------
 // find RDF/RSS/ATOM link in HTML
 //---------------------------------------------------------
+// <base href="xxx">
 // <link rel="alternate" type="application/rdf+xml"  title="RDF" href="xxx" /> 
 // <link rel="alternate" type="application/rss+xml"  title="RSS" href="xxx" /> 
 // <link rel="alternate" type="application/atom+xml" title="ATOM" href="xxx" /> 
 //---------------------------------------------------------
 function _find_xml_link($html, $url='')
 {
+	$href_base = '';
 	$href_rdf  = '';
 	$href_rss  = '';
 	$href_atom = '';
+
+// save all <link> tags
+	if ( preg_match("/<base\s+href=(['\"]?)([^\"'<>]*)\\1(.*?)>/si", $html, $match) ) {
+		$href_base = $match[2];
+	}
+
+echo " base $href_base <br>\n";
 
 // save all <link> tags
 	preg_match_all('/<link\s+(.*?)\s*\/?>/si', $html, $match);
@@ -518,9 +527,9 @@ function _find_xml_link($html, $url='')
 
 	if ($url)
 	{
-		$href_rdf  = $this->_relative_to_full_url($href_rdf,  $url);
-		$href_rss  = $this->_relative_to_full_url($href_rss,  $url);
-		$href_atom = $this->_relative_to_full_url($href_atom, $url);
+		$href_rdf  = $this->_relative_to_full_url($href_rdf,  $url, $href_base);
+		$href_rss  = $this->_relative_to_full_url($href_rss,  $url, $href_base);
+		$href_atom = $this->_relative_to_full_url($href_atom, $url, $href_base);
 	}
 
 	return array($href_rdf, $href_rss, $href_atom);
@@ -528,37 +537,43 @@ function _find_xml_link($html, $url='')
 
 //---------------------------------------------------------
 // relative_to_full_url
-// http://www.univcoop.or.jp/ atom.xml
 //---------------------------------------------------------
-function _relative_to_full_url($url_xml, $url_html)
+function _relative_to_full_url($url_xml, $url_html, $url_base)
 {
 	if ( empty($url_xml) )  return '';
+
+// start from "http"
+	if ( preg_match("/^(https?:\/\/.)/", $url_xml) ) {
+		return $url_xml;
+	}
+
+// if base
+	if ( $url_base ) {
+		$full = $this->join_xml_url( $url_base, $url_xml );
+		return $full;
+	}
 
 // start from "/"
 	if ( preg_match("/^\//", $url_xml) ) {
 
-	// "http://xxx/***/"
-		if ( preg_match("/(https?:\/\/.*)\/.*/", $url_html, $match) ) {
-			$url_full = $this->join_xml_url( $match[1], $url_xml );
-			return $url_full;
+		$param = parse_url( $url_html);
+		if ( isset( $param['scheme'] ) && isset( $param['host'] ) ) {
+			$url  = $param['scheme'].'://'.$param['host'];
+			$full = $this->join_xml_url( $url, $url_xml );
+			return $full;
 		}
 	}
 
-// not start from "http"
-	if ( !preg_match("/^http/", $url_xml) ) {
-		$domain = $url_html;
+// others
+	$url = $url_html;
 
-	// "http://domain/***/"
-		if ( preg_match("/^(https?:\/\/.*)\/(.*\..*)$/", $url_html, $match) ) {
-			$domain = $match[1];
-		}
-
-		$url_full = $this->join_xml_url( $domain, $url_xml );
-		return $url_full;
+	// http://abc/efg.html -> http://abc/
+	if ( preg_match("/^(.*)\/(.*)$/", $url_html, $match) ){
+		$url = $match[1];
 	}
 
-// maybe full url
-	return $url_xml;
+	$full = $this->join_xml_url( $url, $url_xml );
+	return $full;
 }
 
 function join_xml_url( $url_html, $url_xml )

@@ -1,4 +1,4 @@
-$Id: readme.txt,v 1.6 2012/03/18 08:18:30 ohwada Exp $
+$Id: readme.txt,v 1.7 2012/03/18 14:25:03 ohwada Exp $
 
 =================================================
 Version: 1.70
@@ -12,7 +12,7 @@ This module is the library collection for modules distributing in Happy Linux
 
 * Changes *
 1. RSS Parser
-(1) change conversion to absolute URL from relative URL. 
+(1) suport base tag in RSS Auto Discovery
 (2) remove spaces in the head of xml
 (3) suport georss without <geo:point>
 
