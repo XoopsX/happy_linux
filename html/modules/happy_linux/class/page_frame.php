@@ -1,5 +1,8 @@
 <?php
-// $Id: page_frame.php,v 1.1 2010/11/07 14:59:17 ohwada Exp $
+// $Id: page_frame.php,v 1.2 2012/04/08 18:22:28 ohwada Exp $
+
+// 2012-04-02 K.OHWADA
+// get_page_last()
 
 // 2007-11-01 K.OHWADA
 // include/memory.php
@@ -938,6 +941,16 @@ function set_lang_id_desc($value)
 function set_lang_submit_value($value)
 {
 	$this->_LANG_SUBMIT_VALUE = $value;
+}
+
+function get_page_current()
+{
+	return $this->_pagenavi->get_page_current();
+}
+
+function get_page_last()
+{
+	return $this->_pagenavi->calc_page_last();
 }
 
 //---------------------------------------------------------

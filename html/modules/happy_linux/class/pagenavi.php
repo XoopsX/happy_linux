@@ -1,5 +1,8 @@
 <?php
-// $Id: pagenavi.php,v 1.1 2010/11/07 14:59:22 ohwada Exp $
+// $Id: pagenavi.php,v 1.2 2012/04/08 18:22:28 ohwada Exp $
+
+// 2012-04-02 K.OHWADA
+// calc_page_last()
 
 // 2006-09-01 K.OHWADA
 // add set_sortid()
@@ -177,6 +180,14 @@ function build($script='', $total=-1, $page=-1, $perpage=-1, $sortid=-1)
 	return $navi;
 }
 
+function calc_page_last( $total=-1, $perpage=-1 )
+{
+	if ($total   < 0)  $total   = $this->_total;
+	if ($perpage < 0)  $perpage = $this->_perpage;
+
+	return $this->_calc_last($total, $perpage);
+}
+
 //---------------------------------------------------------
 // calc Start
 //---------------------------------------------------------
@@ -337,6 +348,11 @@ function set_max_sortid($value)
 function set_flag_sortid($value)
 {
 	$this->_flag_sortid = intval($value);
+}
+
+function get_page_current()
+{
+	return $this->_page_current;
 }
 
 //---------------------------------------------------------
@@ -548,7 +564,7 @@ function _calc_page($total, $page, $perpage)
 		return array($current, $last, $start);
 	}
 
-	$last = ceil($total / $perpage);
+	$last = $this->_calc_last($total, $perpage);
 
 	if ($last < 1)
 	{
@@ -572,6 +588,12 @@ function _calc_page($total, $page, $perpage)
 	$this->_start = $start;
 
 	return array($current, $last, $start);
+}
+
+function _calc_last($total, $perpage)
+{
+	$last = ceil($total / $perpage);
+	return $last;
 }
 
 //---------------------------------------------------------

@@ -1,5 +1,8 @@
 <?php
-// $Id: object.php,v 1.1 2010/11/07 14:59:21 ohwada Exp $
+// $Id: object.php,v 1.2 2012/04/08 18:22:28 ohwada Exp $
+
+// 2012-04-02 K.OHWADA
+// debug_print_backtrace() in get()
 
 // 2008-12-12 K.OHWADA
 // blob in compare_data_type_to_column_text()
@@ -229,7 +232,15 @@ function assignVars($values)
 //---------------------------------------------------------
 function get($key)
 {
-	return $this->_vars[$key]['value'];
+	if ( isset( $this->_vars[$key]['value'] ) ) {
+		return  $this->_vars[$key]['value'];
+	}
+
+	if ( $this->is_module_admin_error_reporting() ) {
+		echo "object.php get(): $key <br />\n";
+		debug_print_backtrace();
+	}
+	return false;
 }
 
 function &gets()

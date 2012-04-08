@@ -1,11 +1,31 @@
-$Id: readme_ja.txt,v 1.7 2012/03/18 14:25:04 ohwada Exp $
+$Id: readme_ja.txt,v 1.8 2012/04/08 18:24:36 ohwada Exp $
+
+=================================================
+Version: 1.80
+Date:   2012-04-0２
+Author: Kenichi OHWADA
+URL:    http://linux.ohwada.jp/
+Email:  webmaster@ohwada.jp
+=================================================
+
+このモジュールは、Happy Linux で配布しているモジュール用のライブラリ集です
+
+● 変更内容
+1. weblinks モジュールの変更に伴い、下記の変更を行った
+(1) pagenavi page_frame object basic_object クラスを変更した
+
+2. バグ修正
+(1) api/rss_parser.php に誤りがあった
+
+3. 言語ファイル
+(1) ロシア語 ( CP1251 & UTF-8 ) を追加した
+language ディレクトリの他に extra ディレクトリにも置いている
+多謝 Anthony xoops-org.ru 
+
 
 =================================================
 Version: 1.70
 Date:   2012-03-01
-Author: Kenichi OHWADA
-URL:    http://linux.ohwada.jp/
-Email:  webmaster@ohwada.jp
 =================================================
 
 このモジュールは、Happy Linux で配布しているモジュール用のライブラリ集です

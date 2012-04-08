@@ -1,11 +1,31 @@
-$Id: readme.txt,v 1.7 2012/03/18 14:25:03 ohwada Exp $
+$Id: readme.txt,v 1.8 2012/04/08 18:24:35 ohwada Exp $
+
+=================================================
+Version: 1.80
+Date:   2012-04-02
+Author: Kenichi OHWADA
+URL:    http://linux2.ohwada.net/
+Email:  webmaster@ohwada.net
+=================================================
+
+This module is the library collection for modules distributing in Happy Linux
+
+* Changes *
+1. Changed the followings with the update of Weblinks module
+(1) Changed pagenavi, page_frame, object and basic_object class
+
+2. Bugfix
+(1) Some error in api/rss_parser.php
+
+3. Langauge pack
+(1) Added Russian ( CP1251 & UTF-8 )
+Files in language directory and extra directory.
+Special thanks, Anthony xoops-org.ru ,
+
 
 =================================================
 Version: 1.70
 Date:   2012-03-01
-Author: Kenichi OHWADA
-URL:    http://linux2.ohwada.net/
-Email:  webmaster@ohwada.net
 =================================================
 
 This module is the library collection for modules distributing in Happy Linux
@@ -19,10 +39,7 @@ This module is the library collection for modules distributing in Happy Linux
 2. DB hanlder
 (1) add SHOW COLUMNS
 
-1. RSS Parser
-(1) suport georss without <geo:point>
-
-2. bugfix
+3. bugfix
 (1) NOT identify XOOPS Cube 2.2 in link to module management
 (2) an error in constructor of happy_linux_config_form
 
@@ -305,7 +322,7 @@ Administrator can change character code, setting preload/charset.php.
 (2) added Germany (de) in locate
 http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=323&forum=2
 
-5. bug fix ÉoÉOëŒçÙ
+5. bug fix 
 (1) not sanitize site_url in rss
 (2) in form class write by mistake.
 

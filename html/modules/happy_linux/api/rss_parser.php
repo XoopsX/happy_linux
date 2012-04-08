@@ -1,5 +1,8 @@
 <?php
-// $Id: rss_parser.php,v 1.1 2010/11/07 14:59:13 ohwada Exp $
+// $Id: rss_parser.php,v 1.2 2012/04/08 18:22:28 ohwada Exp $
+
+// 2012-04-02 K.OHWADA
+// include/functions.php
 
 //=========================================================
 // Happy Linux Framework Module
@@ -14,6 +17,7 @@ include_once XOOPS_ROOT_PATH.'/class/snoopy.php';
 //---------------------------------------------------------
 // happy_linux
 //---------------------------------------------------------
+include_once XOOPS_ROOT_PATH.'/modules/happy_linux/include/functions.php';
 include_once XOOPS_ROOT_PATH.'/modules/happy_linux/include/multibyte.php';
 include_once XOOPS_ROOT_PATH.'/modules/happy_linux/include/rss_constant.php';
 include_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/magpie/magpie_parse.php';
