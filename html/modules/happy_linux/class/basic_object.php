@@ -1,5 +1,5 @@
 <?php
-// $Id: basic_object.php,v 1.2 2012/04/08 18:22:28 ohwada Exp $
+// $Id: basic_object.php,v 1.3 2012/04/10 02:29:32 ohwada Exp $
 
 // 2012-04-02 K.OHWADA
 // debug_print_backtrace()
@@ -18,6 +18,8 @@
 class happy_linux_basic extends happy_linux_strings
 {
 	var $_vars = array();
+
+	var $_DEBUG = false;
 
 //---------------------------------------------------------
 // constructor
@@ -83,7 +85,7 @@ function &get($key)
 		$ret =& $this->_vars[$key];
 	}
 
-	if ( $this->is_module_admin_error_reporting() ) {
+	if ( $this->_DEBUG ) {
 		echo "basic_object.php get(): $key <br />\n";
 		debug_print_backtrace();
 	}

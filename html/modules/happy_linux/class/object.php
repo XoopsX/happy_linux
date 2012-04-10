@@ -1,5 +1,5 @@
 <?php
-// $Id: object.php,v 1.2 2012/04/08 18:22:28 ohwada Exp $
+// $Id: object.php,v 1.3 2012/04/10 02:29:32 ohwada Exp $
 
 // 2012-04-02 K.OHWADA
 // debug_print_backtrace() in get()
@@ -236,7 +236,7 @@ function get($key)
 		return  $this->_vars[$key]['value'];
 	}
 
-	if ( $this->is_module_admin_error_reporting() ) {
+	if ( $this->_DEBUG ) {
 		echo "object.php get(): $key <br />\n";
 		debug_print_backtrace();
 	}
@@ -386,7 +386,7 @@ function setVars($values, $not_gpc = false)
 	}
 	else
 	{
-		if ( $this->is_module_admin_error_reporting() )
+		if ( $this->_DEBUG() )
 		{
 			echo "object.php setVars(): $values, $not_gpc <br />\n";
 			if ( $this->exist_debug_print_backtrace() )
