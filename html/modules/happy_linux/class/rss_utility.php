@@ -1,5 +1,5 @@
 <?php
-// $Id: rss_utility.php,v 1.4 2012/03/18 14:25:04 ohwada Exp $
+// $Id: rss_utility.php,v 1.5 2012/04/10 18:55:18 ohwada Exp $
 
 // 2012-03-01 K.OHWADA
 // join_xml_url()
@@ -464,8 +464,6 @@ function _find_xml_link($html, $url='')
 	if ( preg_match("/<base\s+href=(['\"]?)([^\"'<>]*)\\1(.*?)>/si", $html, $match) ) {
 		$href_base = $match[2];
 	}
-
-echo " base $href_base <br>\n";
 
 // save all <link> tags
 	preg_match_all('/<link\s+(.*?)\s*\/?>/si', $html, $match);
