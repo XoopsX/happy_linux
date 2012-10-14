@@ -1,5 +1,8 @@
 <?php
-// $Id: admin.php,v 1.2 2012/03/17 13:09:23 ohwada Exp $
+// $Id: admin.php,v 1.3 2012/10/14 01:03:42 ohwada Exp $
+
+// 2012-10-14 K.OHWADA
+// XOOPS Cube 2.1 / 2.2
 
 // 2012-03-01 K.OHWADA
 // XOOPS_CUBE_LEGACY
@@ -28,6 +31,8 @@ class happy_linux_admin
 
 // BUG: typo happy_liunx -> happy_linux
 	var $_FILE_PRELOAD = 'modules/happy_linux/preload/admin.php';
+
+	var $_NAME_XC21 = "XOOPS Cube 2.1 / 2.2";
 
 //---------------------------------------------------------
 // constructor
@@ -85,7 +90,7 @@ function print_preferences()
 
 	echo "<ul>\n";
 	echo '<li><a href="'.$url_20.'">XOOPS 2.0 / 2.2</a></li>'."\n";
-	echo '<li><a href="'.$url_21.'">XOOPS Cube 2.1</a></li>'."\n";
+	echo '<li><a href="'.$url_21.'">'. $this->_NAME_XC21 .'</a></li>'."\n";
 	echo "</ul>\n";
 
 	$this->_print_js($url, $this->_TIME*1000);
@@ -125,7 +130,7 @@ function print_templates()
 
 	echo "<ul>\n";
 	echo '<li><a href="'.$url_20.'">XOOPS 2.0 / 2.2 </a></li>'."\n";
-	echo '<li><a href="'.$url_21.'">XOOPS Cube 2.1</a></li>'."\n";
+	echo '<li><a href="'.$url_21.'">'. $this->_NAME_XC21 .'</a></li>'."\n";
 	echo "</ul>\n";
 
 	$this->_print_js($url, $this->_TIME*1000);
@@ -164,7 +169,7 @@ function print_blocks()
 	echo "<ul>\n";
 	echo '<li><a href="'.$url_20.'">XOOPS 2.0</a> myblocksadmin </li>'."\n";
 	echo '<li><a href="'.$url_22.'">XOOPS 2.0 / 2.2</a></li>'."\n";
-	echo '<li><a href="'.$url_21.'">XOOPS Cube 2.1</a></li>'."\n";
+	echo '<li><a href="'.$url_21.'">'. $this->_NAME_XC21 .'</a></li>'."\n";
 	echo "</ul>\n";
 
 	$this->_print_js($url, $this->_TIME*1000);
@@ -201,13 +206,13 @@ function print_modules( $flag=false )
 
 	echo "<ul>\n";
 	echo '<li><a href="'.$url_20.'">XOOPS 2.0 / 2.2</a></li>'."\n";
-	echo '<li><a href="'.$url_21.'">XOOPS Cube 2.1</a></li>'."\n";
+	echo '<li><a href="'.$url_21.'">'. $this->_NAME_XC21 .'</a></li>'."\n";
 	echo "</ul><br />\n";
 
 	echo "<b>"._HAPPY_LINUX_AM_MODULE_UPDATE."</b><br />\n";
 	echo "<ul>\n";
 	echo '<li><a href="'.$url_u_20.'">XOOPS 2.0 / 2.2</a></li>'."\n";
-	echo '<li><a href="'.$url_u_21.'">XOOPS Cube 2.1</a></li>'."\n";
+	echo '<li><a href="'.$url_u_21.'">'. $this->_NAME_XC21 .'</a></li>'."\n";
 	echo "</ul>\n";
 
 	$this->_print_js($url, $this->_TIME*1000);
@@ -265,7 +270,7 @@ function _get_name( $ver )
 	switch ( $ver )
 	{
 		case 'xoops_cube_21':
-			$name = 'XOOPS Cube 2.1';
+			$name = $this->_NAME_XC21;
 			break;
 
 		case 'xoops_22':
