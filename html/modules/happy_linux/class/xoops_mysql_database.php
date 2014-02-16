@@ -52,7 +52,7 @@ function mysql_database()
 //---------------------------------------------------------
 function connect()
 {
-	$this->conn = mysql_connect(XOOPS_DB_HOST, XOOPS_DB_USER, XOOPS_DB_PASS);
+	$this->conn = mysqli_connect(XOOPS_DB_HOST, XOOPS_DB_USER, XOOPS_DB_PASS);
 
 	if (!$this->conn) 
 	{
@@ -60,7 +60,7 @@ function connect()
 		return false;
 	}
 
-	if (!mysql_select_db(XOOPS_DB_NAME)) 
+	if (!mysqli_select_db($this->conn, XOOPS_DB_NAME)) 
 	{
 		$this->_print_error();
 		return false;
@@ -91,7 +91,7 @@ function _set_charset()
 
 function _is_mysql_ver5()
 {
-	$ver = mysql_get_server_info();
+	$ver = mysqli_get_server_info($this->conn);
 	if ( preg_match("/^4\.1/", $ver) ) 
 	{
 		return true;
@@ -105,52 +105,52 @@ function _is_mysql_ver5()
 
 function fetchRow($result)
 {
-	return @mysql_fetch_row($result);
+	return @mysqli_fetch_row($result);
 }
 
 function fetchArray($result)
 {
-	return @mysql_fetch_assoc( $result );
+	return @mysqli_fetch_assoc( $result );
 }
 
 function fetchBoth($result)
 {
-	return @mysql_fetch_array( $result, MYSQL_BOTH );
+	return @mysqli_fetch_array( $result, MYSQL_BOTH );
 }
 
 function getInsertId()
 {
-	return mysql_insert_id($this->conn);
+	return mysqli_insert_id($this->conn);
 }
 
 function getRowsNum($result)
 {
-	return @mysql_num_rows($result);
+	return @mysqli_num_rows($result);
 }
 
 function getAffectedRows()
 {
-	return mysql_affected_rows($this->conn);
+	return mysqli_affected_rows($this->conn);
 }
 
 function close()
 {
-	mysql_close($this->conn);
+	mysqli_close($this->conn);
 }
 
 function freeRecordSet($result)
 {
-	return mysql_free_result($result);
+	return mysqli_free_result($result);
 }
 
 function error()
 {
-	return @mysql_error();
+	return @mysqli_error($this->conn);
 }
 
 function errno()
 {
-	return @mysql_errno();
+	return @mysqli_errno($this->conn);
 }
 
 function quoteString($str)
@@ -172,7 +172,7 @@ function &queryF($sql, $limit=0, $start=0)
 	}
 
 // Only variables should be assigned by reference
-	$result = mysql_query($sql, $this->conn);
+	$result = mysqli_query($this->conn, $sql);
 
 	if ( !$result )
 	{

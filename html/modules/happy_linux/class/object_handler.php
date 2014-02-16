@@ -600,7 +600,7 @@ function &get_field_meta_name_array()
 
 	for ( $i=0; $i<$num; $i++ ) 
 	{
-		$meta = mysql_fetch_field($res);
+		$meta = $this->fetchField($res);
 		if ( is_object($meta) )
 		{
 			$arr_meta[] = $meta;
@@ -935,6 +935,19 @@ function &fetchArray($res)
 function &fetchRow($res)
 {
 	$ret = $this->_db->fetchRow($res);
+	return $ret;
+}
+
+function &fetchField($res)
+{
+	if (is_object($this->_db->conn))
+	{
+		$ret = mysqli_fetch_field($res);
+	}
+	else
+	{
+		$ret = mysql_fetch_field($res);
+	}
 	return $ret;
 }
 

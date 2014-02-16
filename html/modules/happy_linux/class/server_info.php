@@ -69,10 +69,12 @@ function build_powerdby()
 
 function build_server_env()
 {
+	$db = XoopsDatabaseFactory::getDatabaseConnection();
+    $get_server_info = (is_object($db->conn) && get_class($db->conn) === 'mysqli')? 'mysqli_get_server_info' : 'mysql_get_server_info';
 	$text  = "<h4>". _HAPPY_LINUX_AM_SERVER_ENV ."</h4>\n";
 	$text .= "OS: ". php_uname() ."<br />\n"; 
 	$text .= "PHP: ". PHP_VERSION ."<br />\n"; 
-	$text .= "MySQL: ". mysql_get_server_info() ."<br />\n"; 
+	$text .= "MySQL: ". $get_server_info($db->conn) ."<br />\n"; 
 	$text .= "XOOPS: ". XOOPS_VERSION ."<br />\n"; 
 	$text .= "<br />\n";
 	$text .= "error_reporting: ". error_reporting() ."<br />\n";
