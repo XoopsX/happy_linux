@@ -621,7 +621,7 @@ function update_column_type( $fields )
 //---------------------------------------------------------
 function &convert_string_to_array($str, $pattern='&')
 {
-	$str_arr = split($pattern, $str);
+	$str_arr = explode($pattern, $str);
 
 	$i = 0;	
 	$arr = array();
