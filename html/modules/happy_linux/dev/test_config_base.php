@@ -77,7 +77,7 @@ exit();
 
 function test_common($key, $set, $get_expect, $getvar_expect=null)
 {
-	$obj =& new happy_linux_config_base();
+	$obj = new happy_linux_config_base();
 	$obj->set('conf_valuetype', $key);
 	$obj->setConfValueForInput($set);
 	$get    = $obj->get('conf_value');
@@ -98,7 +98,7 @@ function test_common($key, $set, $get_expect, $getvar_expect=null)
 
 function test_array($key, $set, $get_expect, $getvar_expect=null)
 {
-	$obj =& new happy_linux_config_base();
+	$obj = new happy_linux_config_base();
 	$obj->set('conf_valuetype', $key);
 	$obj->setConfValueForInput($set);
 	$get    = $obj->get('conf_value');

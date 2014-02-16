@@ -122,7 +122,7 @@ exit();
 
 function test_common($key, $set, $get_expect, $getvar_expect=null)
 {
-	$obj =& new test_object();
+	$obj = new test_object();
 	$obj->setVar($key, $set);
 	$get    = $obj->get($key);
 	$getvar = $obj->getVar($key);
@@ -142,7 +142,7 @@ function test_common($key, $set, $get_expect, $getvar_expect=null)
 
 function test_array($key, $set, $get_expect, $getvar_expect=null)
 {
-	$obj =& new test_object();
+	$obj = new test_object();
 	$obj->setVar($key, $set);
 	$get    = $obj->get($key);
 	$getvar = $obj->getVar($key);
