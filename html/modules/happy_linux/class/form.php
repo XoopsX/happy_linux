@@ -496,10 +496,23 @@ function get_unixtime_form_select_time_with_flag_from_post( &$post, $name, $defa
 	return intval($val);
 }
 
-function build_form_dhtml_textarea($name, $value, $rows=5, $cols=50, $hiddentext="xoopsHiddenText")
+function build_form_dhtml_textarea($name, $value, $rows=5, $cols=50, $hiddentext="xoopsHiddenText", $dohtml=false )
 {
-	$ele  = new XoopsFormDhtmlTextArea('', $name, $value, $rows, $cols, $hiddentext);
-	$text = $ele->render();
+	if ( defined('LEGACY_BASE_VERSION') && version_compare(LEGACY_BASE_VERSION, '2.2.0.0', '>=') ) {
+		$type = $dohtml? 'HTML' : 'BBCode';
+		$params = array();
+		$params['name'] = $name;
+		$params['editor'] = $params['class'] = strtolower($type);
+		$params['cols'] = $cols;
+		$params['rows'] = $rows;
+		$params['value'] = $value;
+		$params['id'] = 'legacy_xoopsform_' . $params['name'];
+		$text = '';
+		XCube_DelegateUtils::call('Site.TextareaEditor.'.$type.'.Show', new XCube_Ref($text), $params);
+	} else {
+		$ele  = new XoopsFormDhtmlTextArea('', $name, $value, $rows, $cols, $hiddentext);
+		$text = $ele->render();
+	}
 	return $text;
 }
 
