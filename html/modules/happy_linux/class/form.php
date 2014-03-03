@@ -499,7 +499,7 @@ function get_unixtime_form_select_time_with_flag_from_post( &$post, $name, $defa
 function build_form_dhtml_textarea($name, $value, $rows=5, $cols=50, $hiddentext="xoopsHiddenText", $dohtml=false )
 {
 	$ele  = new XoopsFormDhtmlTextArea('', $name, $value, $rows, $cols, $hiddentext);
-	if ( defined('LEGACY_BASE_VERSION') && version_compare(LEGACY_BASE_VERSION, '2.2.0.0', '>=') ) {
+	if ( defined('LEGACY_BASE_VERSION') && version_compare(LEGACY_BASE_VERSION, '2.2.2.1', '>=') ) {
 		$ele->setEditor($dohtml? 'HTML' : 'BBCode');
 	}
 	$text = $ele->render();
