@@ -74,7 +74,7 @@ function happy_linux_remote_file()
 
 }
 
-function &getInstance()
+public static function &getInstance()
 {
 	static $instance;
 	if (!isset($instance)) 

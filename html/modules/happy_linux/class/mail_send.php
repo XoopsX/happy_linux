@@ -25,7 +25,7 @@ function happy_linux_mail_send()
 	$this->_post   =& happy_linux_post::getInstance();
 }
 
-function &getInstance()
+public static function &getInstance()
 {
 	static $instance;
 	if (!isset($instance)) 

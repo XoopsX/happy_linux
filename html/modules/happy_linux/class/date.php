@@ -34,7 +34,7 @@ function happy_linux_date()
 	$this->_offset_orginal = intval( $this->get_timezone_offset() );
 }
 
-function &getInstance()
+public static function &getInstance()
 {
 	static $instance;
 	if (!isset($instance)) 

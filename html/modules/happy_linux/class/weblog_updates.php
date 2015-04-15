@@ -55,7 +55,7 @@ function happy_linux_weblog_updates()
 
 }
 
-function &getInstance()
+public static function &getInstance()
 {
 	static $instance;
 	if (!isset($instance)) 

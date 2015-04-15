@@ -78,7 +78,7 @@ function happy_linux_error()
 	}
 }
 
-function &getInstance()
+public static function &getInstance()
 {
 	static $instance;
 	if (!isset($instance)) 

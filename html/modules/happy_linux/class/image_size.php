@@ -28,7 +28,7 @@ function happy_linux_image_size()
 // dummy
 }
 
-function &getInstance()
+public static function &getInstance()
 {
 	static $instance;
 	if (!isset($instance)) 

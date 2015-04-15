@@ -154,7 +154,7 @@ function happy_linux_build_rss()
 	$this->_date    =& happy_linux_date::getInstance();
 }
 
-function &getInstance()
+public static function &getInstance()
 {
 	static $instance;
 	if (!isset($instance)) 

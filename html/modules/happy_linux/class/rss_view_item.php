@@ -39,7 +39,7 @@ function happy_linux_rss_view_item()
 	$this->_highlight->set_class( 'rssc_highlight' );
 }
 
-function &getInstance()
+public static function &getInstance()
 {
 	static $instance;
 	if (!isset($instance)) 

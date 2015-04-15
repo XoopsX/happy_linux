@@ -28,7 +28,7 @@ function happy_linux_xml_base()
 	// dummy
 }
 
-function &getInstance()
+public static function &getInstance()
 {
 	static $instance;
 	if (!isset($instance)) 
@@ -437,7 +437,7 @@ function happy_linux_build_xml()
 	$this->happy_linux_xml_base();
 }
 
-function &getInstance()
+public static function &getInstance()
 {
 	static $instance;
 	if (!isset($instance)) 

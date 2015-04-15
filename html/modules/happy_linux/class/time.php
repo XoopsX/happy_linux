@@ -33,7 +33,7 @@ function happy_linux_time( $flag_mem=false )
 
 }
 
-function &getInstance( $flag_mem=false )
+public static function &getInstance( $flag_mem=false )
 {
 	static $instance;
 	if (!isset($instance)) 

@@ -41,7 +41,7 @@ function happy_linux_post()
 	$this->happy_linux_strings();
 }
 
-function &getInstance()
+public static function &getInstance()
 {
 	static $instance;
 	if (!isset($instance)) 

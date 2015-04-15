@@ -32,7 +32,7 @@ function happy_linux_admin_menu()
 	// dummy
 }
 
-function &getInstance()
+public static function &getInstance()
 {
 	static $instance;
 	if (!isset($instance)) 

@@ -44,7 +44,7 @@ function happy_linux_form_lib()
 	$this->_system  =& happy_linux_system::getInstance();
 }
 
-function &getInstance()
+public static function &getInstance()
 {
 	static $instance;
 	if (!isset($instance)) 

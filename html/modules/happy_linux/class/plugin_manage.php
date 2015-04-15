@@ -30,7 +30,7 @@ function happy_linux_plugin_manage()
 	$this->_form  =& happy_linux_plugin_test_form::getInstance();
 }
 
-function &getInstance()
+public static function &getInstance()
 {
 	static $instance;
 	if (!isset($instance)) 
@@ -134,7 +134,7 @@ function happy_linux_plugin_test()
 	$this->_form    =& happy_linux_plugin_test_form::getInstance();
 }
 
-function &getInstance()
+public static function &getInstance()
 {
 	static $instance;
 	if (!isset($instance)) 
@@ -254,7 +254,7 @@ function happy_linux_plugin_test_form()
 	$this->_post =& happy_linux_post::getInstance();
 }
 
-function &getInstance()
+public static function &getInstance()
 {
 	static $instance;
 	if (!isset($instance)) 

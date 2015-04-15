@@ -62,7 +62,7 @@ function happy_linux_rss_parser()
 
 }
 
-function &getInstance()
+public static function &getInstance()
 {
 	static $instance;
 	if (!isset($instance)) 

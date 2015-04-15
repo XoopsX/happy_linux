@@ -187,7 +187,7 @@ function happy_linux_build_kml()
 	$this->set_view_title( 'Google KML' );
 }
 
-function &getInstance()
+public static function &getInstance()
 {
 	static $instance;
 	if (!isset($instance)) 

@@ -770,7 +770,7 @@ function happy_linux_config_store_handler()
 	$this->_post =& happy_linux_post::getInstance();
 }
 
-function &getInstance()
+public static function &getInstance()
 {
 	static $instance;
 	if (!isset($instance)) 

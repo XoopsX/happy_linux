@@ -82,7 +82,7 @@ function happy_linux_rss_utility()
 
 }
 
-function &getInstance()
+public static function &getInstance()
 {
 	static $instance;
 	if (!isset($instance)) 

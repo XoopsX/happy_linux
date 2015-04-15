@@ -45,7 +45,7 @@ function happy_linux_table_manage( $dirname )
 	$this->_this_url = xoops_getenv('PHP_SELF');
 }
 
-function &getInstance( $dirname )
+public static function &getInstance( $dirname )
 {
 	static $instance;
 	if (!isset($instance)) 

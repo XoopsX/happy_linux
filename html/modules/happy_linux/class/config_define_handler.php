@@ -48,7 +48,7 @@ function set_config_define( &$class )
 	$this->_config_define =& $class;
 }
 
-function &getInstance()
+public static function &getInstance()
 {
 	static $instance;
 	if (!isset($instance)) 

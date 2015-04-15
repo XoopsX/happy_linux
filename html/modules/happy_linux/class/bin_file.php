@@ -28,7 +28,7 @@ function happy_linux_bin_file()
 	$this->happy_linux_file();
 }
 
-function &getInstance()
+public static function &getInstance()
 {
 	static $instance;
 	if (!isset($instance)) 

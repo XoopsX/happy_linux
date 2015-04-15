@@ -41,7 +41,7 @@ function happy_linux_xoops_block_checker()
 	$this->_get_module_param();
 }
 
-function &getInstance()
+public static function &getInstance()
 {
 	static $instance;
 	if (!isset($instance)) 

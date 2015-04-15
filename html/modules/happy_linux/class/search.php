@@ -98,7 +98,7 @@ function happy_linux_search()
 	$this->_system  =& happy_linux_system::getInstance();
 }
 
-function &getInstance()
+public static function &getInstance()
 {
 	static $instance;
 	if (!isset($instance)) 

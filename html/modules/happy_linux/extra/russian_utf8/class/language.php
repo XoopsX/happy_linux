@@ -101,7 +101,7 @@ function happy_linux_language_factory()
 	$this->happy_linux_language_base();
 }
 
-function &getInstance( $lang=null )
+public static function &getInstance( $lang=null )
 {
 	static $instance;
 	if (!isset($instance)) 

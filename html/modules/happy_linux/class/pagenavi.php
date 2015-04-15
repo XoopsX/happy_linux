@@ -48,7 +48,7 @@ function happy_linux_pagenavi()
 	// dummy
 }
 
-function &getInstance()
+public static function &getInstance()
 {
 	static $instance;
 	if (!isset($instance)) 

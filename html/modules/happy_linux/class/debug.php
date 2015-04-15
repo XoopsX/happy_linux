@@ -17,7 +17,7 @@ function happy_linux_debug()
 	// dummy
 }
 
-function &getInstance()
+public static function &getInstance()
 {
 	static $instance;
 	if (!isset($instance)) 

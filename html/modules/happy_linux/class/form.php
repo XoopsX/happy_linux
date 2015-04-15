@@ -132,7 +132,7 @@ function happy_linux_form()
 	$this->happy_linux_html();
 }
 
-function &getInstance()
+public static function &getInstance()
 {
 	static $instance;
 	if (!isset($instance)) 

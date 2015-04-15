@@ -30,7 +30,7 @@ function happy_linux_rss_default()
 	// dummy
 }
 
-function &getInstance()
+public static function &getInstance()
 {
 	static $instance;
 	if (!isset($instance)) 

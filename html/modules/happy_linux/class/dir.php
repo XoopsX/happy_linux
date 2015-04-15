@@ -50,7 +50,7 @@ function happy_linux_dir()
 	$this->_preload_file();
 }
 
-function &getInstance()
+public static function &getInstance()
 {
 	static $instance;
 	if (!isset($instance)) 

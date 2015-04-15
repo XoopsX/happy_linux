@@ -50,7 +50,7 @@ function happy_linux_plugin()
 	$this->_system    =& happy_linux_get_singleton( 'system' );
 }
 
-function &getInstance()
+public static function &getInstance()
 {
 	static $instance;
 	if (!isset($instance)) 

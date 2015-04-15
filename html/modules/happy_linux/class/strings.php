@@ -68,7 +68,7 @@
 //=========================================================
 // Happy Linux Framework Module
 // 2006-07-10 K.OHWADA
-// —L•üŽ©‰“•û—ˆ
+// ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //=========================================================
 
 include_once XOOPS_ROOT_PATH.'/modules/happy_linux/include/sanitize.php';
@@ -89,7 +89,7 @@ class happy_linux_strings
 	var $_is_japanese  = false;
 
 // same language match contorl code
-// ex) BIG-5 GB2312 Ž` C05C B2CD —V B943 904A 
+// ex) BIG-5 GB2312 ï¿½` C05C B2CD ï¿½V B943 904A 
 	var $_flag_remove_control_code = false;
 
 // allow to remove control code
@@ -104,7 +104,7 @@ function happy_linux_strings()
 	$this->init_strings();
 }
 
-function &getInstance()
+public static function &getInstance()
 {
 	static $instance;
 	if (!isset($instance)) 

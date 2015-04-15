@@ -59,7 +59,7 @@ function happy_linux_kakasi()
 	$this->_dir_work = XOOPS_ROOT_PATH.'/modules/happy_linux/cache';
 }
 
-function &getInstance()
+public static function &getInstance()
 {
 	static $instance;
 	if (!isset($instance)) 

@@ -34,7 +34,7 @@ function happy_linux_extract_word()
 	$this->_kakasi =& happy_linux_get_singleton( 'kakasi' );
 }
 
-function &getInstance()
+public static function &getInstance()
 {
 	static $instance;
 	if (!isset($instance)) 

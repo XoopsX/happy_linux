@@ -134,7 +134,7 @@ function happy_linux_locate_factory()
 	$this->happy_linux_locate_base();
 }
 
-function &getInstance( $locate=null )
+public static function &getInstance( $locate=null )
 {
 	static $instance;
 	if (!isset($instance)) 

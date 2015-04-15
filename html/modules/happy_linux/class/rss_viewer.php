@@ -50,7 +50,7 @@ function happy_linux_rss_viewer()
 	$this->happy_linux_error();
 }
 
-function &getInstance()
+public static function &getInstance()
 {
 	static $instance;
 	if (!isset($instance)) 

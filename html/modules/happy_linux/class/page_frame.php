@@ -109,7 +109,7 @@ function happy_linux_page_frame()
 	$this->_pagenavi =& happy_linux_pagenavi::getInstance();
 }
 
-function &getInstance()
+public static function &getInstance()
 {
 	static $instance;
 	if (!isset($instance)) 

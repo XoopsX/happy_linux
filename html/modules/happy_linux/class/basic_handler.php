@@ -81,7 +81,7 @@ function happy_linux_basic_handler( $dirname )
 	$this->_db =& Database::getInstance();
 }
 
-function &getInstance( $dirname )
+public static function &getInstance( $dirname )
 {
 	static $instance;
 	if (!isset($instance)) 
